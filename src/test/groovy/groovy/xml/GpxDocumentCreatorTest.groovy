@@ -27,8 +27,18 @@ class GpxDocumentCreatorTest extends Specification {
         expect:
         tempFile.exists()
         tempFile.size() != 0
+        1 == 1
 
         cleanup:
         tempFile.delete()
+    }
+
+    def 'foo'() {
+        given:
+        String dir = System.getProperty( "user.dir" )
+        String nisapiModeFile = dir + "/nisapiMode.txt"
+
+        expect:
+        nisapiModeFile == "dog"
     }
 }

@@ -16,3 +16,24 @@ dependencies {
     // https://mvnrepository.com/artifact/org.springframework/spring-core
     compile group: 'org.springframework', name: 'spring-core', version: '4.3.9.RELEASE'
 }
+
+task hello
+println "hello.name: ${hello.name}"
+println "project.hello.name: ${project.hello.name}"
+println "tasks.hello.name: ${tasks.hello.name}"
+println "tasks['hello'].name: ${tasks['hello'].name}"
+
+task myCopy(type: Copy) {
+    from 'resources'
+    into 'target'
+    include ('**/*.txt', '**/*.xml', '**/*.properties')
+}
+
+// Think this is what I want to do with the test task from the Java plugin...
+task hello(overwrite: true) {
+    description 'I am the new hello'
+    doLast {
+        println 'I am the new hello :-)'
+    }
+}
+
