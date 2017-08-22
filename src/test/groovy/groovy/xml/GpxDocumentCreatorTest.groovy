@@ -32,13 +32,4 @@ class GpxDocumentCreatorTest extends Specification {
         cleanup:
         tempFile.delete()
     }
-
-    def 'foo'() {
-        given:
-        String dir = System.getProperty( "user.dir" )
-        String nisapiModeFile = dir + "/nisapiMode.txt"
-
-        expect:
-        nisapiModeFile == "dog"
-    }
 }
